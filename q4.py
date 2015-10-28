@@ -1,0 +1,1 @@
+print sum(map(lambda x: x**2 if x%2==1 else x**2*-1,range(1,11)))

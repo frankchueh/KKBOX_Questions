@@ -1,10 +1,14 @@
-data = [i.strip() for i in open("file.txt",'r')]
-first = max(data)
-data.remove(first)
-second = max(data)
-data.remove(second)
-third =max(data)
-print first
-print second
-print third
+with open("file.txt",'r') as f:
+	first, second, third = 0, 0, 0
+	for line in f:
+		if line > first:
+			first, second, third = line, first, second
+		elif line > second:
+			second, third = line, second
+		elif line > third:
+			third = line
+	
+	print first
+	print second
+	print third
 	

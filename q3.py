@@ -1,11 +1,12 @@
 with open("file3.txt") as f:
-	factor = 1
-	result = 0;
-	A_to_Z = [chr(i) for i in range(65,91)]
-	data = f.readline()
-	for c in data:
-		if c in A_to_Z:
-			result += (ord(c)-64)*factor
-		elif c is ',':
-			factor+=1
-	print result
+
+	data = f.readline().strip('"').split('","')
+	sorted_data = sorted(data)
+	name_score, index = 0, 0
+
+	for item in sorted_data:
+		index+=1
+		for letter in item:
+			name_score += (ord(letter)-64)*index
+			
+	print(name_score)
